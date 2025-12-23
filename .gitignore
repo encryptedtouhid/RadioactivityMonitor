@@ -1,0 +1,10 @@
+*.md
+/RadioactivityMonitor/tests/RadioactivityMonitor.Tests/obj
+/RadioactivityMonitor/tests/RadioactivityMonitor.Tests/bin
+/RadioactivityMonitor/src/RadioactivityMonitor.Core/obj
+
+/RadioactivityMonitor/.idea
+/RadioactivityMonitor/src/RadioactivityMonitor.App/bin
+/RadioactivityMonitor/src/RadioactivityMonitor.App/obj
+/RadioactivityMonitor/src/RadioactivityMonitor.Core/bin
+.DS_Store
