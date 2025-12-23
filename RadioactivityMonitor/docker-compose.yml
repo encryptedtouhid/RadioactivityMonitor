@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  radioactivity-monitor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: radioactivity-monitor
+    restart: "no"
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.tests
+    container_name: radioactivity-monitor-tests
