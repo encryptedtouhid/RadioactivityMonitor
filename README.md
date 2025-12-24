@@ -125,3 +125,7 @@ The project includes **41 unit tests** covering:
 | Edge Cases | Zero, negative, and extreme values |
 | Constructor Tests | Null handling and default constructor |
 | Threshold Constant Tests | Verify threshold values |
+
+## Code Improvements
+
+See [IMPROVEMENTS.md](IMPROVEMENTS.md) for details on bug fixes and design improvements made to the original codebase.
