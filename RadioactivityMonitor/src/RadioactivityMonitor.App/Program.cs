@@ -19,7 +19,7 @@ for (int i = 1; i <= 10; i++)
     var status = alarm.AlarmOn ? "ALARM!" : "Normal";
     var stateChanged = !previousState && alarm.AlarmOn ? " [NEW]" : "";
 
-    Console.WriteLine($"Reading {i:D2}: Status = {status}{stateChanged}");
+    Console.WriteLine($"Reading Sequence No : {i:D2} ,  Value = {alarm.LastReading:F2} ,  Status = {status}{stateChanged}");
 
     await Task.Delay(500);
 }

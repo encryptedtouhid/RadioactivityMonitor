@@ -4,7 +4,7 @@ using RadioactivityMonitor.Core.Interfaces;
 using RadioactivityMonitor.Core.Sensors;
 
 /// <summary>
-/// Monitors radioactivity levels and triggers an alarm if readings fall outside safe thresholds.
+/// Watches radioactivity levels and turns on an alarm if the reading is too high or too low.
 /// </summary>
 public class Alarm
 {
@@ -14,29 +14,31 @@ public class Alarm
     private readonly ISensor _sensor;
     private bool _alarmOn = false;
     private long _alarmCount = 0;
+    private double _lastReading;
 
     /// <summary>
-    /// Initializes a new instance of the Alarm class with a default Sensor.
+    /// Creates a new Alarm with a default sensor.
     /// </summary>
     public Alarm() : this(new Sensor())
     {
     }
 
     /// <summary>
-    /// Initializes a new instance of the Alarm class with a specified sensor.
+    /// Creates a new Alarm with the sensor you give it.
     /// </summary>
-    /// <param name="sensor">The sensor to use for radioactivity readings.</param>
+    /// <param name="sensor">The sensor to read values from.</param>
     public Alarm(ISensor sensor)
     {
         _sensor = sensor ?? throw new ArgumentNullException(nameof(sensor));
     }
 
     /// <summary>
-    /// Checks the current radioactivity value and updates the alarm state.
+    /// Reads the sensor and turns on the alarm if the value is outside the safe range (17 to 21).
     /// </summary>
     public void Check()
     {
         double value = _sensor.NextMeasure();
+        _lastReading = value;
 
         if (value < LowThreshold || HighThreshold < value)
         {
@@ -46,7 +48,7 @@ public class Alarm
     }
 
     /// <summary>
-    /// Gets a value indicating whether the alarm is currently triggered.
+    /// Returns true if the alarm is on, false if it's off.
     /// </summary>
     public bool AlarmOn
     {
@@ -54,7 +56,7 @@ public class Alarm
     }
 
     /// <summary>
-    /// Gets the number of times the alarm has been triggered.
+    /// Returns how many times the alarm has been triggered.
     /// </summary>
     public long AlarmCount
     {
@@ -62,12 +64,20 @@ public class Alarm
     }
 
     /// <summary>
-    /// Gets the low threshold value for testing purposes.
+    /// Returns the last reading from the sensor.
+    /// </summary>
+    public double LastReading
+    {
+        get { return _lastReading; }
+    }
+
+    /// <summary>
+    /// Returns the low threshold value (17).
     /// </summary>
     public static double GetLowThreshold() => LowThreshold;
 
     /// <summary>
-    /// Gets the high threshold value for testing purposes.
+    /// Returns the high threshold value (21).
     /// </summary>
     public static double GetHighThreshold() => HighThreshold;
 }

@@ -1,14 +1,13 @@
 namespace RadioactivityMonitor.Core.Interfaces;
 
 /// <summary>
-/// Interface for radioactivity sensors.
-/// Allows for dependency injection and testability.
+/// Interface for sensors that measure radioactivity.
 /// </summary>
 public interface ISensor
 {
     /// <summary>
-    /// Gets the next measurement from the sensor.
+    /// Gets the next reading from the sensor.
     /// </summary>
-    /// <returns>The radioactivity value in appropriate units.</returns>
+    /// <returns>The radioactivity value.</returns>
     double NextMeasure();
 }
