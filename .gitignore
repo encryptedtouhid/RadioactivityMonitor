@@ -8,3 +8,4 @@
 /RadioactivityMonitor/src/RadioactivityMonitor.App/obj
 /RadioactivityMonitor/src/RadioactivityMonitor.Core/bin
 .DS_Store
+/RadioactivityMonitor/.vs
