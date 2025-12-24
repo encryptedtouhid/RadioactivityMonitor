@@ -3,16 +3,17 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
 # Copy solution and project files
-COPY RadioactivityMonitor.sln .
-COPY src/RadioactivityMonitor.Core/RadioactivityMonitor.Core.csproj src/RadioactivityMonitor.Core/
-COPY src/RadioactivityMonitor.App/RadioactivityMonitor.App.csproj src/RadioactivityMonitor.App/
-COPY tests/RadioactivityMonitor.Tests/RadioactivityMonitor.Tests.csproj tests/RadioactivityMonitor.Tests/
+COPY RadioactivityMonitor/RadioactivityMonitor.sln .
+COPY RadioactivityMonitor/src/RadioactivityMonitor.Core/RadioactivityMonitor.Core.csproj src/RadioactivityMonitor.Core/
+COPY RadioactivityMonitor/src/RadioactivityMonitor.App/RadioactivityMonitor.App.csproj src/RadioactivityMonitor.App/
+COPY RadioactivityMonitor/tests/RadioactivityMonitor.Tests/RadioactivityMonitor.Tests.csproj tests/RadioactivityMonitor.Tests/
 
 # Restore dependencies
 RUN dotnet restore
 
 # Copy source code
-COPY . .
+COPY RadioactivityMonitor/src/ src/
+COPY RadioactivityMonitor/tests/ tests/
 
 # Run tests
 RUN dotnet test --no-restore --verbosity minimal

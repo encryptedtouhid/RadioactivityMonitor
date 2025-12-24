@@ -35,19 +35,19 @@ RadioactivityMonitor/
 
 ```bash
 git clone https://github.com/encryptedtouhid/RadioactivityMonitor.git
-cd RadioactivityMonitor/RadioactivityMonitor
+cd RadioactivityMonitor
 ```
 
 ### Build the Solution
 
 ```bash
-dotnet build
+dotnet build RadioactivityMonitor/RadioactivityMonitor.sln
 ```
 
 ### Run the Application
 
 ```bash
-dotnet run --project src/RadioactivityMonitor.App
+dotnet run --project RadioactivityMonitor/src/RadioactivityMonitor.App
 ```
 
 #### Expected Output
@@ -73,19 +73,19 @@ Monitoring complete.
 ### Run All Tests
 
 ```bash
-dotnet test
+dotnet test RadioactivityMonitor/RadioactivityMonitor.sln
 ```
 
 ### Run Tests with Detailed Output
 
 ```bash
-dotnet test --verbosity normal
+dotnet test RadioactivityMonitor/RadioactivityMonitor.sln --verbosity normal
 ```
 
 ### Run Tests with Code Coverage
 
 ```bash
-dotnet test --collect:"XPlat Code Coverage"
+dotnet test RadioactivityMonitor/RadioactivityMonitor.sln --collect:"XPlat Code Coverage"
 ```
 
 ## Docker
